@@ -1,6 +1,6 @@
 # Website for photography company.
 > I made this mini aplication to mainly train my Javascript skills, but also HTML and CSS. I used SASS and BEM technology to style. Project is fully responsible, made following mobile first rule.
-> Visit this site to watch project live: https://martinafm.github.io/notes/ .
+> Visit this site to watch project live: https://martinafm.github.io/Notes/ .
 
 
 ## Table of Contents
