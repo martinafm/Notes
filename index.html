@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOTES</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons@latest/iconfont/tabler-icons.min.css">
+    <script src="https://kit.fontawesome.com/cd4426d543.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="wrapper">
+    <nav class="nav">
+        <h1 class="nav__title"><i class="nav__logo fa-regular fa-clipboard"></i>Notes</h1>
+        <div class="nav__btns">
+            <button class="nav__add"><i class="nav__btn fa-solid fa-plus"></i>Add</button>
+            <button class="nav__deleteAll"><i class="nav__btn fa-solid fa-trash"></i>Delete all</button>
+        </div>
+    </nav>
+
+    <section class="notes">
+        <!-- <article class="note">
+            <header class="note__heading">
+                <h2 class="note__title">Other</h2>
+                <button class="note__delete-btn"><i class="note__heading-icon fa-solid fa-xmark"></i></button>
+            </header>
+            <article class="note__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab velit harum excepturi, doloremque tenetur reiciendis repellat quos! Ratione aspernatur sapiente mollitia reiciendis velit tempora dolore.</article>
+        </article>  -->
+    </section>
+
+    <section class="panel">
+        <h2 class="panel__title">Add note</h2>
+        <label class="panel__text" for="category">Choose category</label>
+        <select class="panel__select" name="categories" id="category" onchange="selectValue()">
+            <option value="default" selected disabled>---</option>
+            <option value="other">other</option>
+            <option value="job">job</option>
+            <option value="to do">to do</option>
+            <option value="shopping">shopping</option>
+        </select>
+        <label class="panel__text" for="text">Enter text</label>
+        <textarea class="panel__textarea" name="test" id="test"></textarea>
+        <p class="error">Fill out all the fields </p>
+
+        <div class="panel__btns">
+            <button class="panel__btn save">Save</button>
+            <button class="panel__btn cancel">Cancel</button>
+        </div>
+    </section>
+
+    <section class="info info--show">
+        <p class = "info__text">You don't have any notes yet. Make some!</p>
+        <button class="info__btn"><i class="info__btn-icon fa-regular fa-pen-to-square"></i></button>
+    </section>
+</div>
+
+<script src="main.js"></script>
+    
+</body>
+</html>
