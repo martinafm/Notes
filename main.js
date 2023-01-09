@@ -4,7 +4,7 @@ const infoAddBtn = document.querySelector('.info__btn')
 const deleteAllBtn = document.querySelector('.nav__deleteAll')
 const saveBtn = document.querySelector('.save')
 const cancelBtn = document.querySelector('.cancel')
-const deleteBtn = document.getElementsByClassName('.note__delete-btn')
+
 
 const panel = document.querySelector('.panel')
 const info = document.querySelector('.info')
@@ -15,7 +15,8 @@ const category = document.querySelector('#category')
 const error = document.querySelector('.error')
 const body = document.querySelector('body')
 
-const cardID = 0
+
+let cardID = 0
 let selectedValue
 
 const showPanel = () => {
@@ -49,12 +50,14 @@ const createNote = () => {
 	newNote.innerHTML = `
     <header class="note__heading">
         <h2 class="note__title">${selectedValue}</h2>
-        <button class="note__delete-btn" onclick="deleteNote(${cardID})"><i class="note__heading-icon fa-solid fa-xmark"></i></button>
+        <button class="note__delete-btn"><i class="note__heading-icon fa-solid fa-xmark"></i></button>
     </header>
     <article class="note__text">${textarea.value}</article>`
 
 	notes.appendChild(newNote)
+    cardID++
     checkColor(newNote)
+    
 }
 
 const selectValue = () => {
@@ -79,11 +82,20 @@ const checkColor = (note) => {
 	}
 }
 
-const deleteNote = (id) => {
-	const noteToDelete = document.getElementById(id)
-	notes.removeChild(noteToDelete)
-    showInfo()
+const checkClickIfDelete = (e) => {
+    
+    if (e.target.matches('.note__delete-btn')){
+        console.log(true);
+        const noteToDelete = e.target.closest('article')
+        notes.removeChild(noteToDelete)
+    } 
 }
+
+// const deleteNote = (id) => {
+// 	const noteToDelete = document.getElementById(id)
+// 	noteToDelete.parentNode.removeChild(noteToDelete)
+//     showInfo()
+// }
 
 const showInfo = () => {
 	if (
@@ -94,10 +106,17 @@ const showInfo = () => {
 	}
 }
 
+const clearNotes = () => {
+    notes.textContent = ''
+    showInfo()
+}
+
 addBtn.addEventListener('click', showPanel)
 infoAddBtn.addEventListener('click', showPanel)
 cancelBtn.addEventListener('click', closePanel)
 
 saveBtn.addEventListener('click', addNote)
-deleteAllBtn.addEventListener('click', () => (notes.textContent = '')(showInfo()))
+deleteAllBtn.addEventListener('click', clearNotes)
+
+notes.addEventListener('click', checkClickIfDelete, {capture: true})
 

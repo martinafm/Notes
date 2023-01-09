@@ -71,6 +71,7 @@ body {
 
 .note {
   margin: 0 1em 1em;
+  background-color: #f6f6f6;
   border: 1px solid var(--main);
   box-shadow: 0 0 0 1px var(--off-white);
   border-radius: 8px;
@@ -85,6 +86,9 @@ body {
   margin-bottom: 1em;
   text-transform: uppercase;
   font-size: 1rem;
+}
+.note__heading-icon {
+  pointer-events: none;
 }
 .note__delete-btn {
   font-size: 1.6rem;
